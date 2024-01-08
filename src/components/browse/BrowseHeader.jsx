@@ -1,8 +1,9 @@
 import React from "react";
-import { useSelector } from "react-redux";
+
+import Header from "../signin/Header";
 
 function BrowseHeader() {
-  return <div className="text-4xl">browse</div>;
+  return <Header />;
 }
 
 export default BrowseHeader;

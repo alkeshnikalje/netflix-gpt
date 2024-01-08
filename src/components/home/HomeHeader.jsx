@@ -6,7 +6,7 @@ const bgImage = {
     "linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%), url(https://assets.nflxext.com/ffe/siteui/vlv3/c38a2d52-138e-48a3-ab68-36787ece46b3/eeb03fc9-99c6-438e-824d-32917ce55783/IN-en-20240101-popsignuptwoweeks-perspective_alpha_website_large.jpg)",
 };
 
-function Header() {
+function HomeHeader() {
   return (
     <div
       className="bg-cover pb-24 border-b-[6px] border-gray-800"
@@ -21,6 +21,7 @@ function Header() {
               className=""
             />
           </div>
+
           <Link
             className="bg-[#E50914] px-3 py-1 text-white rounded-[4px] text-sm font-semibold hover:bg-red-700 transition-all duration-300"
             to="/login"
@@ -29,6 +30,7 @@ function Header() {
           </Link>
         </div>
       </div>
+
       <div className="w-[60%] mx-auto text-center mt-36 text-white">
         <h1 className="text-4xl mb-4 font-bold">
           Unlimited movies, TV shows and more
@@ -39,4 +41,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default HomeHeader;

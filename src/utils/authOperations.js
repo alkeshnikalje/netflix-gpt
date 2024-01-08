@@ -2,6 +2,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
+  signOut,
 } from "firebase/auth";
 
 import { auth } from "./firebase";
@@ -32,6 +33,14 @@ export const updateUser = async (name, imgUrl) => {
     });
 
     return updatedUser;
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const signOutUser = async () => {
+  try {
+    await signOut(auth);
   } catch (error) {
     throw error;
   }

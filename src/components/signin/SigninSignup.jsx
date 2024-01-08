@@ -1,17 +1,22 @@
 import React, { useState, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { validateEmailAndPassword } from "../../utils/validateEmailAndPassword";
-import { createUser, signInUser } from "../../utils/auth";
+import { createUser, signInUser, updateUser } from "../../utils/auth";
+import { useDispatch } from "react-redux";
+import { addUser } from "../user/userSlice";
 const bgImage = {
   backgroundImage:
     "linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%), url(https://assets.nflxext.com/ffe/siteui/vlv3/c38a2d52-138e-48a3-ab68-36787ece46b3/eeb03fc9-99c6-438e-824d-32917ce55783/IN-en-20240101-popsignuptwoweeks-perspective_alpha_website_large.jpg)",
 };
 function SigninSignup() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [isSignupForm, setIsSignupForm] = useState(false);
   const [error, setError] = useState("");
   const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
+  const imgUrl = useRef(null);
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -28,21 +33,39 @@ function SigninSignup() {
         );
         setError(isValid);
         if (isValid !== null) return;
-        const user = await createUser(
+        const userCredential = await createUser(
           email.current.value,
           password.current.value
         );
-        console.log(user);
+        const user = userCredential.user;
+
+        const updatedUser = await updateUser(
+          name.current.value,
+          imgUrl.current.value
+        );
+
+        const { displayName, photoURL, uid } = updatedUser;
+
+        dispatch(addUser({ displayName, photoURL, uid }));
+        navigate("/browse");
+        name.current.value = null;
+        email.current.value = null;
+        password.current.value = null;
+        imgUrl.current.value = null;
       }
       if (!email.current.value || !password.current.value) return;
       setError(null);
-      const user = await signInUser(
+      const userCredential = await signInUser(
         email.current.value,
         password.current.value
       );
-      console.log(user);
+      const user = userCredential.user;
+      const { displayName, photoURL, uid } = user;
+      dispatch(addUser({ displayName, photoURL, uid }));
+      navigate("/browse");
+      email.current.value = null;
+      password.current.value = null;
     } catch (error) {
-      console.log(error);
       setError(error.message);
     }
   };
@@ -93,6 +116,16 @@ function SigninSignup() {
               className="w-full bg-gray-800 focus:outline-none text-sm text-white placeholder:text-gray-400 placeholder:text-sm placeholder:font-semibold px-3 py-2 rounded-sm"
             />
           </div>
+          {isSignupForm && (
+            <div className="w-full">
+              <input
+                ref={imgUrl}
+                type="text"
+                placeholder="Profile image url"
+                className="w-full bg-gray-800 focus:outline-none text-sm text-white placeholder:text-gray-400 placeholder:text-sm placeholder:font-semibold px-3 py-2 rounded-sm"
+              />
+            </div>
+          )}
         </div>
 
         <button className="text-sm bg-[#E50914] text-white font-bold w-full py-2 rounded-sm mb-9">

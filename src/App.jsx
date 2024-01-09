@@ -2,12 +2,21 @@ import React from "react";
 import Home from "./components/home/Home";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import SigninSignup from "./components/signin/SigninSignup";
-import BrowseHeader from "./components/browse/BrowseHeader";
+import BrowseAppLayout from "./components/browse/BrowseAppLayout";
+import BrowseHome from "./components/browse/BrowseHome";
+import BrowseMovies from "./components/browse/BrowseMovies";
 
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
   { path: "/login", element: <SigninSignup /> },
-  { path: "/browse", element: <BrowseHeader /> },
+  {
+    path: "/browse",
+    element: <BrowseAppLayout />,
+    children: [
+      { path: "/browse", element: <BrowseHome /> },
+      { path: "/browse/movies", element: <BrowseMovies /> },
+    ],
+  },
 ]);
 
 function App() {

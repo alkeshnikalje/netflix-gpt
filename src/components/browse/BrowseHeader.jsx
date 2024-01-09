@@ -1,6 +1,6 @@
 import React from "react";
 
-import Header from "../signin/Header";
+import Header from "../ui/Header";
 
 function BrowseHeader() {
   return <Header />;

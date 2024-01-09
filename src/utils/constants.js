@@ -9,3 +9,13 @@ export const API_OPTIONS = {
       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkOWM3NGJiODU2ZWU1MThlZjU2MzUzMmFmNjkyYjZhMyIsInN1YiI6IjY1OWNlMmUzNTVjMWY0MDBlZTRmNjk5MyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.fmYLxiL49VnTaiBrwSsIIAkWK326todeNF7lUo1mnoY",
   },
 };
+
+export const getRandomIndex = (array) => {
+  if (array.length === 0) {
+    // Return null or handle the case where the array is empty
+    return null;
+  }
+
+  const randomIndex = Math.floor(Math.random() * array.length);
+  return randomIndex;
+};

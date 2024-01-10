@@ -4,6 +4,7 @@ const initialState = {
   movies: [],
   randomMovieid: null,
   trailerKey: null,
+  trailerSoundOn: false,
 };
 
 const moviesSlice = createSlice({
@@ -19,9 +20,13 @@ const moviesSlice = createSlice({
     setKey(state, action) {
       state.trailerKey = action.payload;
     },
+    setTrailerSoundOn(state) {
+      state.trailerSoundOn = !state.trailerSoundOn;
+    },
   },
 });
 
-export const { addMovies, setMovieId, setKey } = moviesSlice.actions;
+export const { addMovies, setMovieId, setKey, setTrailerSoundOn } =
+  moviesSlice.actions;
 
 export default moviesSlice.reducer;

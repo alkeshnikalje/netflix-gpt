@@ -2,9 +2,13 @@ import React from "react";
 
 import PlayButton from "../ui/PlayButton";
 import InfoButton from "../ui/InfoButton";
-import { useSelector } from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux";
+import { HiOutlineSpeakerWave } from "react-icons/hi2";
+import { setTrailerSoundOn } from "./moviesSlice";
+import { HiOutlineSpeakerXMark } from "react-icons/hi2";
 function TitleAndDesc() {
+  const isSoundOn = useSelector((store) => store.movies.trailerSoundOn);
+  const dispatch = useDispatch();
   const { movies, randomMovieid } = useSelector((store) => store.movies);
 
   return (
@@ -20,6 +24,12 @@ function TitleAndDesc() {
           <PlayButton />
           <InfoButton />
         </div>
+        <button
+          className="rounded-full border border-white mt-10 p-3 text-lg"
+          onClick={() => dispatch(setTrailerSoundOn())}
+        >
+          {isSoundOn ? <HiOutlineSpeakerWave /> : <HiOutlineSpeakerXMark />}
+        </button>
       </div>
     </>
   );

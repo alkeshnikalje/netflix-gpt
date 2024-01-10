@@ -10,7 +10,7 @@ function BackGroundVideo() {
   useGetTrailerKey(movies, randomMovieid);
 
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <iframe
         className="w-screen aspect-video"
         src={`https://www.youtube.com/embed/${trailerKey}?autoplay=1&mute=1`}

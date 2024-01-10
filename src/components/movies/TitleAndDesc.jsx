@@ -9,7 +9,7 @@ function TitleAndDesc() {
 
   return (
     <>
-      <div className="px-10 text-white absolute top-60">
+      <div className="px-10 text-white absolute top-[57px] z-1 bg-gradient-to-b from-black w-full pt-80">
         <h1 className="text-5xl font-semibold mb-4">
           {movies[randomMovieid]?.original_title}
         </h1>

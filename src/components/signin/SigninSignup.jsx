@@ -88,7 +88,7 @@ function SigninSignup() {
         <p className="text-xl text-white mb-4">
           {!isSignupForm ? "Sign In" : "Sign Up"}
         </p>
-        <div className="flex flex-col gap-3 mb-7">
+        <div className="flex flex-col gap-4 mb-8">
           {isSignupForm && (
             <div className="w-full">
               <input

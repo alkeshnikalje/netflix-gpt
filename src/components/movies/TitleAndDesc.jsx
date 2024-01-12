@@ -17,7 +17,7 @@ function TitleAndDesc() {
         <h1 className="text-5xl font-semibold mb-4">
           {movies[randomMovieid]?.original_title}
         </h1>
-        <p className="w-[40%] mb-4 text-lg">
+        <p className="w-[40%] mb-8 text-lg">
           {movies[randomMovieid]?.overview}
         </p>
         <div className="flex gap-2">

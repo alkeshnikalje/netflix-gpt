@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  movies: [],
+  nowPlayingMovies: [],
   randomMovieid: null,
   trailerKey: null,
   trailerSoundOn: false,
@@ -12,7 +12,7 @@ const moviesSlice = createSlice({
   initialState,
   reducers: {
     addMovies(state, action) {
-      state.movies = action.payload;
+      state.nowPlayingMovies = action.payload;
     },
     setMovieId(state, action) {
       state.randomMovieid = action.payload;

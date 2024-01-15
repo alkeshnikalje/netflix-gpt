@@ -19,3 +19,5 @@ export const getRandomIndex = (array) => {
   const randomIndex = Math.floor(Math.random() * array.length);
   return randomIndex;
 };
+
+export const movieImgUlr = "https://image.tmdb.org/t/p/w300";

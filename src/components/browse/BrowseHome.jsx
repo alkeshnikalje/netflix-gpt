@@ -1,6 +1,7 @@
 import TitleAndDesc from "../movies/TitleAndDesc";
 import BackGroundVideo from "../movies/BackGroundVideo";
 import useFetchMovies from "../../Hooks/useFetchMovies";
+import MovieListContainer from "./MovieListContainer";
 function BrowseHome() {
   useFetchMovies();
 
@@ -11,6 +12,7 @@ function BrowseHome() {
 
         <TitleAndDesc />
       </div>
+      <MovieListContainer />
     </>
   );
 }

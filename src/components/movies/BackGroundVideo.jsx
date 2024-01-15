@@ -4,11 +4,11 @@ import useGetTrailerKey from "../../Hooks/useGetTrailerKey";
 import { useSelector } from "react-redux";
 function BackGroundVideo() {
   const isSoundOn = useSelector((store) => store.movies.trailerSoundOn);
-  const { movies, randomMovieid, trailerKey } = useSelector(
+  const { nowPlayingMovies, randomMovieid, trailerKey } = useSelector(
     (store) => store.movies
   );
 
-  useGetTrailerKey(movies, randomMovieid);
+  useGetTrailerKey(nowPlayingMovies, randomMovieid);
 
   return (
     <div className="overflow-x-hidden">

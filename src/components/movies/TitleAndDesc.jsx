@@ -9,16 +9,18 @@ import { HiOutlineSpeakerXMark } from "react-icons/hi2";
 function TitleAndDesc() {
   const isSoundOn = useSelector((store) => store.movies.trailerSoundOn);
   const dispatch = useDispatch();
-  const { movies, randomMovieid } = useSelector((store) => store.movies);
+  const { nowPlayingMovies, randomMovieid } = useSelector(
+    (store) => store.movies
+  );
 
   return (
     <>
       <div className="px-10 text-white absolute top-[57px] z-1 bg-gradient-to-b from-black w-full pt-64">
         <h1 className="text-5xl font-semibold mb-16">
-          {movies[randomMovieid]?.original_title}
+          {nowPlayingMovies[randomMovieid]?.original_title}
         </h1>
         <p className="w-[40%] mb-4 text-lg">
-          {movies[randomMovieid]?.overview}
+          {nowPlayingMovies[randomMovieid]?.overview}
         </p>
         <div className="flex gap-2">
           <PlayButton />

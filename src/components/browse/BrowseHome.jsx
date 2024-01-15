@@ -1,10 +1,18 @@
 import TitleAndDesc from "../movies/TitleAndDesc";
 import BackGroundVideo from "../movies/BackGroundVideo";
 import useFetchMovies from "../../Hooks/useFetchMovies";
-import MovieListContainer from "./MovieListContainer";
-import { NOW_PLAYING } from "../../utils/constants";
+import {
+  NOW_PLAYING,
+  POPULAR,
+  TOP_RATED,
+  UPCOMING,
+} from "../../utils/constants";
+import MovieListContainer from "../movies/MovieListContainer";
 function BrowseHome() {
   useFetchMovies(NOW_PLAYING);
+  useFetchMovies(POPULAR);
+  useFetchMovies(TOP_RATED);
+  useFetchMovies(UPCOMING);
 
   return (
     <>

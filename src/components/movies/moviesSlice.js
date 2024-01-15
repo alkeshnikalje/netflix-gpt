@@ -5,6 +5,9 @@ const initialState = {
   randomMovieid: null,
   trailerKey: null,
   trailerSoundOn: false,
+  popularMovies: [],
+  topRatedMovies: [],
+  upcomingMovies: [],
 };
 
 const moviesSlice = createSlice({
@@ -12,8 +15,16 @@ const moviesSlice = createSlice({
   initialState,
   reducers: {
     addMovies(state, action) {
-      state.nowPlayingMovies = action.payload;
+      if (action.payload.category === "now_playing")
+        state.nowPlayingMovies = action.payload.movies;
+      if (action.payload.category === "popular")
+        state.popularMovies = action.payload.movies;
+      if (action.payload.category === "top_rated")
+        state.topRatedMovies = action.payload.movies;
+      if (action.payload.category === "upcoming")
+        state.upcomingMovies = action.payload.movies;
     },
+
     setMovieId(state, action) {
       state.randomMovieid = action.payload;
     },

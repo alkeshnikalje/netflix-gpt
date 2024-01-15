@@ -4,8 +4,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import SigninSignup from "./components/signin/SigninSignup";
 import BrowseAppLayout from "./components/browse/BrowseAppLayout";
 import BrowseHome from "./components/browse/BrowseHome";
-import BrowseMovies from "./components/browse/BrowseMovies";
-
+import MyList from "./components/browse/MyList";
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
   { path: "/login", element: <SigninSignup /> },
@@ -14,7 +13,7 @@ const router = createBrowserRouter([
     element: <BrowseAppLayout />,
     children: [
       { path: "/browse", element: <BrowseHome /> },
-      { path: "/browse/movies", element: <BrowseMovies /> },
+      { path: "/browse/mylist", element: <MyList /> },
     ],
   },
 ]);

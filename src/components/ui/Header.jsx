@@ -45,30 +45,7 @@ function Header() {
               Home
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/browse/tvshows"
-              className={({ isActive }) =>
-                isActive
-                  ? "text-white cursor-default"
-                  : "hover:opacity-80 transition-all duration-300"
-              }
-            >
-              TV Shows
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/browse/movies"
-              className={({ isActive }) =>
-                isActive
-                  ? "text-white cursor-default"
-                  : "hover:opacity-80 transition-all duration-300"
-              }
-            >
-              Movies
-            </NavLink>
-          </li>
+
           <li>
             <NavLink
               to="/browse/mylist"

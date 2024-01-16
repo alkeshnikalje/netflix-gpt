@@ -6,7 +6,7 @@ function MovieListContainer() {
     useSelector((store) => store.movies);
 
   return (
-    <div className="pl-3 pb-16 bg-stone-800 flex flex-col gap-40">
+    <div className="pl-2 pb-16 bg-stone-800 flex flex-col gap-40">
       <MovieList moviesCategory="Now Playing" movies={nowPlayingMovies} />
       <MovieList moviesCategory="Popular" movies={popularMovies} />
       <MovieList moviesCategory="Top Rated" movies={topRatedMovies} />

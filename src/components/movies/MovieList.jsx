@@ -4,8 +4,8 @@ import MovieItem from "./MovieItem";
 import { movieImgUlr } from "../../utils/constants";
 function MovieList({ moviesCategory, movies }) {
   return (
-    <div className="z-40 -mt-28">
-      <p className="mb-5 text-white font-semibold text-xl">{moviesCategory}</p>
+    <div className="-mt-28">
+      <p className="mb-1 text-white font-semibold text-xl">{moviesCategory}</p>
       <div className="flex gap-2 overflow-x-scroll">
         {movies.map((movie, index) => (
           <MovieItem

@@ -21,7 +21,7 @@ function Header() {
   if (!user) return userDoesNotExist;
 
   return (
-    <div className="flex justify-between py-3 bg-stone-900 pr-4 bg-gradient-to-b from-black sticky top-0 z-40">
+    <div className="flex justify-between py-3 bg-stone-800 pr-4 bg-gradient-to-b from-black sticky top-0 z-40">
       <div className=" flex items-center">
         <div className="h-8 w-24 ml-10 mr-6">
           <Link to="/">

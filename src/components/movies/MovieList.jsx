@@ -12,6 +12,7 @@ function MovieList({ moviesCategory, movies }) {
             key={movie.id}
             backGroundImg={movieImgUlr + movie.backdrop_path}
             title={movie.original_title}
+            movieId={movie.id}
           />
         ))}
       </div>

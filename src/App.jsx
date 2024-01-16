@@ -5,6 +5,7 @@ import SigninSignup from "./components/signin/SigninSignup";
 import BrowseAppLayout from "./components/browse/BrowseAppLayout";
 import BrowseHome from "./components/browse/BrowseHome";
 import MyList from "./components/browse/MyList";
+import MovieDetails from "./components/movies/MovieDetails";
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
   { path: "/login", element: <SigninSignup /> },
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
     children: [
       { path: "/browse", element: <BrowseHome /> },
       { path: "/browse/mylist", element: <MyList /> },
+      { path: "/browse/:movieId", element: <MovieDetails /> },
     ],
   },
 ]);

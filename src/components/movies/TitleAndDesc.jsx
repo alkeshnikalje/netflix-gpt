@@ -24,7 +24,7 @@ function TitleAndDesc() {
         </p>
         <div className="flex gap-2">
           <PlayButton />
-          <InfoButton />
+          <InfoButton movieId={nowPlayingMovies[randomMovieid]?.id} />
         </div>
         <button
           className="rounded-full border border-white mt-10 p-3 text-lg"

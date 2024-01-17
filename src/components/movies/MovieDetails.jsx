@@ -1,30 +1,13 @@
-import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { API_OPTIONS } from "../../utils/constants";
+import useFetchMovieDetails from "../../Hooks/useFetchMovieDetails";
 
 function MovieDetails() {
-  const [movie, setMovie] = useState(null);
   const params = useParams();
   const { movieId } = params;
-  const getMovieDetails = async () => {
-    try {
-      if (!movieId) return;
-      const res = await fetch(
-        `https://api.themoviedb.org/3/movie/${movieId}`,
-        API_OPTIONS
-      );
-      const data = await res.json();
-      setMovie(data);
-    } catch (err) {
-      console.log(err);
-    }
-  };
 
-  useEffect(() => {
-    getMovieDetails();
-  }, []);
+  const movie = useFetchMovieDetails(movieId);
 
-  if (!movie) return;
+  if (!movie) return <div className="bg-stone-800 h-screen"></div>;
 
   return (
     <div className="bg-stone-800 h-screen">

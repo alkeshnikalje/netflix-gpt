@@ -1,7 +1,9 @@
 import { useParams } from "react-router-dom";
 import useFetchMovieDetails from "../../Hooks/useFetchMovieDetails";
-
-function MovieDetails() {
+import { useDispatch } from "react-redux";
+import { addMovieToMyList } from "../user/userMoviesSlice";
+function MovieDetails({}) {
+  const dispatch = useDispatch();
   const params = useParams();
   const { movieId } = params;
 
@@ -29,7 +31,10 @@ function MovieDetails() {
               {movie.original_title}
             </p>
             <p className="mb-6">Rating-{` ${movie.vote_average}`}⭐</p>
-            <button className="bg-white text-black px-6 rounded-sm font-semibold py-1">
+            <button
+              className="bg-white text-black px-6 rounded-sm font-semibold py-1"
+              onClick={() => dispatch(addMovieToMyList({ movieId, movie }))}
+            >
               Add to my list
             </button>
           </div>

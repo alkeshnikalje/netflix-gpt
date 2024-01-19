@@ -13,7 +13,7 @@ function MovieDetails({}) {
   const moveExists = myMovies.find((movie) => movie.id == movieId);
 
   return (
-    <div className="bg-stone-800 h-screen">
+    <div className="bg-stone-800 pb-[70px]">
       <div className="w-[500px] mx-auto pt-8">
         <img
           src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}

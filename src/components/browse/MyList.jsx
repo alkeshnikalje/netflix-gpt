@@ -1,10 +1,14 @@
-import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 
-function MyList() {
-  // const myMovieList = useSelector((store) => store.movies.myList);
+import MovieList from "../movies/MovieList";
 
-  return <div>MyList</div>;
+function MyList() {
+  const myMovieList = useSelector((store) => store.myMovies.myMovieList);
+  return (
+    <div className="h-screen bg-stone-800">
+      <MovieList moviesCategory="My List" movies={myMovieList} />
+    </div>
+  );
 }
 
 export default MyList;

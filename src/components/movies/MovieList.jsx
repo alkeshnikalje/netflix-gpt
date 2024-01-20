@@ -2,14 +2,17 @@ import React from "react";
 import MovieItem from "./MovieItem";
 
 import { movieImgUlr } from "../../utils/constants";
+import { useSelector } from "react-redux";
 function MovieList({ moviesCategory, movies }) {
+  const user = useSelector((store) => store.user.displayName);
   if (moviesCategory === "My List") {
     return (
       <div className="w-3/4 mx-auto p-11">
-        <p className="mb-4 text-white font-semibold text-xl">My Movies List</p>
+        <p className="mb-4 text-white font-semibold text-xl">{`${user}'s Movies List`}</p>
         <div className="flex gap-3 flex-wrap">
           {movies.map((movie, index) => (
             <MovieItem
+              movie={movie}
               key={movie.id}
               backGroundImg={movieImgUlr + movie.backdrop_path}
               title={movie.original_title}
@@ -31,6 +34,7 @@ function MovieList({ moviesCategory, movies }) {
             backGroundImg={movieImgUlr + movie.backdrop_path}
             title={movie.original_title}
             movieId={movie.id}
+            movie={movie}
           />
         ))}
       </div>

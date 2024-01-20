@@ -9,8 +9,8 @@ function MovieDetails({}) {
   const { movieId } = params;
 
   const movie = useFetchMovieDetails(movieId);
-  if (!movie) return <div className="bg-stone-800 h-screen"></div>;
-  const moveExists = myMovies.find((movie) => movie.id == movieId);
+  if (!movie) return <div className="bg-stone-800 h-svh"></div>;
+  const moveExists = myMovies.find((movie) => movie?.id == movieId);
 
   return (
     <div className="bg-stone-800 pb-[70px]">
